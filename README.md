@@ -1,7 +1,7 @@
 # bootbox
 javascript modal  for bootstrap 
 
-e.g. 
+###调用方式
 <pre>
  bootbox.success('Your String', callbackFn)
  bootbox.danger('Your String', callbackFn)
