@@ -1,5 +1,5 @@
 # bootbox
-javascript modal  for bootstrap
+javascript modal  for bootstrap 
 
 e.g. 
 <pre>
@@ -29,4 +29,5 @@ e.g.
 </pre>
 
 #see the demo
+###写说明比较费劲 先自己看示例吧
 http://yaojaa.github.io/bootbox/demo.html
