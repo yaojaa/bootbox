@@ -1,4 +1,4 @@
-# bootbox  v0.1 
+# bootbox  v0.2 
 
 javascript modal  for bootstrap ，基于bootbox的增强扩展，简洁了语法。增加了成功\失败、警告、加载中、右下角弹窗等。
 并定义了样式方案，如需修改直接改bootbox.css即可。
@@ -35,6 +35,16 @@ javascript modal  for bootstrap ，基于bootbox的增强扩展，简洁了语�
     });
     
 </pre>
+
+新增 消息条提示:
+<pre>
+ bootbox.msg({
+        msg: 'im a msg type is  success',
+        type:'success',
+        hideAfter:2000
+   })
+</pre>
+
 
 #see the demo
 ###写说明比较费劲 先自己看示例吧
