@@ -297,7 +297,6 @@
         label: _t(value)
       };
     }
-  console.log(buttons);
     return buttons;
   }
 
@@ -399,7 +398,6 @@
   exports.loading = function() {
     var options;
 
-    console.log(options);
 
     options={
       message:'<i class="glyphicon glyphicon-refresh"></i>'+(arguments[0]  || 'loading...'),
@@ -445,7 +443,6 @@
     /**
      * overrides; undo anything the user tried to set they shouldn't have
      */
-     console.log( options);
     options.buttons.cancel.callback = options.onEscape = function() {
       return options.callback.call(this, false);
     };
@@ -494,7 +491,6 @@
       ["confirm", "cancel"]
     );
 
-    console.log(options)
 
     // capture the user's show value; we always set this to false before
     // spawning the dialog to give us a chance to attach some handlers to
@@ -713,7 +709,6 @@
       );
     }
 
-    console.log($.fn.modal);
    
 
     each(buttons, function(key, button) {
@@ -853,7 +848,6 @@
       // onEscape might be falsy but that's fine; the fact is
       // if the user has managed to click the close button we
       // have to close the dialog, callback or not
-            console.log('点击了关闭')
 
       processCallback(e, dialog, callbacks.onEscape);
     });
