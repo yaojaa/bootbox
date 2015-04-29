@@ -2,7 +2,7 @@
 javascript modal  for bootstrap
 
 e.g. 
-~<code>~
+<pre>
  bootbox.success('Your String', callbackFn)
  bootbox.danger('Your String', callbackFn)
  bootbox.warning('Your String', callbackFn)
@@ -26,7 +26,7 @@ e.g.
         }
     });
     
-~</code>~
+</pre>
 
 #see the demo
 http://yaojaa.github.io/bootbox/demo.html
