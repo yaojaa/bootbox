@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootbox.css">
+
+    <style>
+
+/*******************/
+
+body{
+ -webkit-font-smoothing:antialiased ;
+  padding: 30px}
+    </style>
+
+</head>
+<body>
+
+    <h2 align="center">BOOTBOX 增强版 v0.1</h2>
+    <hr>
+        <h3>说明：</h3>
+        <p>基于jquery 和bootstrap的模态框组件</p>
+        <p>
+         <code>
+            
+    &lt;link rel="stylesheet" href="bootstrap/css/bootstrap.css" &gt; <br>
+    &lt;link rel="stylesheet" href="bootstrap/css/bootbox.css" &gt; <br>
+
+    &lt;script src="jquery.min.js" &gt;&lt;/script &gt; <br>
+    &lt;script src="bootstrap/js/bootstrap.js" &gt;&lt;/script &gt; <br>
+    &lt;script src="bootbox.js" &gt;</script  &gt; <br>
+
+
+
+
+        </code>
+    </p>
+
+         <p>支持模块化加载</p>
+        <p>
+         <code>
+
+            require('bootbox');
+
+
+        </code></p>
+
+
+    <h3>示例：</h3>
+
+	<!--Email Modal Templates-->
+    <div id="myModal" style="display:none;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="To" required="">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Subject" required="">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Content" rows="5" required=""></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Email Templates-->
+
+
+<p style="padding:60px"><button class="btn btn-lg  btn-success" id="bootbox-success">success</button>
+	<button class="btn btn-lg btn-warning" id="bootbox-warning">warning</button>
+	<button class="btn btn-lg btn-danger" id="bootbox-danger">danger</button>
+	<button class="btn btn-lg btn-info" id="bootbox-info">info</button>
+
+
+	<button class="btn btn-lg btn-default" id="bootbox-confirm">confirm</button>
+	
+
+
+	<button class="btn btn-lg btn-default" id="bootbox-prompt">prompt</button>
+
+		<button class="btn btn-lg btn-default" id="bootbox-options">options</button>
+
+        <button class="btn btn-lg btn-default" id="bootbox-loading">loading</button>
+
+         <button class="btn btn-lg btn-default" id="bootbox-rb">底部弹出</button>
+
+
+	
+</p>
+
+<h3>调用方式：</h3>
+
+<p>
+    <textarea name="" id="" cols="170" rows="30">
+$("#bootbox-success").on('click', function() {
+    bootbox.success('恭喜你，支付成功！', function() {
+        $('h1').html("bootbox.success('恭喜你，支付成功！',callback}")
+    })
+});
+
+
+
+$("#bootbox-danger").on('click', function() {
+    bootbox.danger('你确定要删除吗？', function() {
+        $('h1').html("bootbox.danger('你确定要删除吗？',callback}")
+    })
+});
+
+
+
+$("#bootbox-warning").on('click', function() {
+    bootbox.warning('尽量不要在公共场合记住密码', function() {
+        $('h1').html("bootbox.warning('尽量不要在公共场合记住密码',callback}")
+    });
+});
+
+
+
+$("#bootbox-info").on('click', function() {
+    bootbox.info('正在为你查询请稍后<br> <small>3秒后自动关闭 </small> ', function() {
+        $('h1').html("bootbox.info('正在为你查询请稍后<br> <small>3秒后自动关闭 </small>',callback,4000}")
+    }, 3000)
+});
+
+
+
+$("#bootbox-confirm").on('click', function() {
+    bootbox.confirm("您确定要删除吗？", function(result) {
+        alert(result)
+    });
+});
+
+
+$("#bootbox-prompt").on('click', function() {
+    bootbox.prompt("请输入您的姓名", function(result) {
+
+        alert(result)
+
+    });
+});
+
+
+$("#bootbox-options").on('click', function() {
+    bootbox.dialog({
+        message: $("#myModal").html(),
+        title: "注册新用户",
+        className: "",
+        buttons: {
+            ok: {
+                label: "立即注册",
+                className: "btn-success",
+                callback: function() {}
+            },
+            "cancel": {
+                label: "取消",
+                className: "btn-default",
+                callback: function() {}
+            }
+        }
+    });
+});
+
+
+
+$("#bootbox-loading").on('click', function() {
+    bootbox.loading('加载中请稍后...');
+    window.setTimeout(function() {
+        bootbox.hideAll();
+        bootbox.success('恭喜你，支付成功！')
+    }, 3000)
+});
+
+
+
+$("#bootbox-rb").on('click', function() {
+    bootbox.dialog({
+        message: $("#myModal").html(),
+        title: "注册新用户",
+        className: "",
+        formRb: true,
+        backdrop: false
+    });
+});
+    </textarea>
+</p>
+
+
+
+<script src="jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+
+<script src="bootbox.js"></script>
+
+
+<script>
+
+$("#bootbox-success").on('click', function() {
+    bootbox.success('恭喜你，支付成功！', function() {
+        $('h1').html("bootbox.success('恭喜你，支付成功！',callback}")
+    })
+});
+
+$("#bootbox-danger").on('click', function() {
+    bootbox.danger('你确定要删除吗？', function() {
+        $('h1').html("bootbox.danger('你确定要删除吗？',callback}")
+    })
+});
+
+$("#bootbox-warning").on('click', function() {
+    bootbox.warning('尽量不要在公共场合记住密码', function() {
+        $('h1').html("bootbox.warning('尽量不要在公共场合记住密码',callback}")
+    });
+});
+
+
+$("#bootbox-info").on('click', function() {
+    bootbox.info('正在为你查询请稍后<br> <small>3秒后自动关闭 </small> ', function() {
+        $('h1').html("bootbox.info('正在为你查询请稍后<br> <small>3秒后自动关闭 </small>',callback,4000}")
+    }, 3000)
+});
+
+
+
+$("#bootbox-confirm").on('click', function() {
+    bootbox.confirm("您确定要删除吗？", function(result) {
+        alert(result)
+    });
+});
+
+
+$("#bootbox-prompt").on('click', function() {
+    bootbox.prompt("请输入您的姓名", function(result) {
+
+        alert(result)
+
+    });
+});
+
+
+$("#bootbox-options").on('click', function() {
+    bootbox.dialog({
+        message: $("#myModal").html(),
+        title: "注册新用户",
+        className: "",
+        buttons: {
+            ok: {
+                label: "立即注册",
+                className: "btn-success",
+                callback: function() {}
+            },
+            "cancel": {
+                label: "取消",
+                className: "btn-default",
+                callback: function() {}
+            }
+        }
+    });
+});
+
+
+
+$("#bootbox-loading").on('click', function() {
+    bootbox.loading('加载中请稍后...');
+    window.setTimeout(function() {
+        bootbox.hideAll();
+        bootbox.success('恭喜你，支付成功！')
+
+    }, 3000)
+});
+
+$("#bootbox-rb").on('click', function() {
+    bootbox.dialog({
+        message: $("#myModal").html(),
+        title: "注册新用户",
+        className: "",
+        formRb: true,
+        backdrop: false
+    });
+});
+</script>
+
+</body>
+</html>
