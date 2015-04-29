@@ -315,6 +315,68 @@
 
     return options;
   }
+  //message
+
+  function _MSG(){
+
+   this.init.apply(this,arguments)
+  }
+  _MSG.prototype={
+
+     init:function(opt){
+           console.log(opt);
+
+      var defaults={
+          hideAfter:1000,
+          position:'msg-on-top',
+          container:$('body'),
+          type:'success',
+          showCloseButton:true,
+          closeButtonText:"&times;",
+          autoHide:true
+      }
+
+     var options= $.extend({},defaults,opt);
+
+
+     if($('.bootbox-messenger').size()<=0){
+     var $ul=$('<ul class="bootbox-messenger"></ul>').appendTo(options.container)
+     }else{
+      $ul=$('ul.bootbox-messenger')
+     }
+     console.log($ul);
+     this.$msgItem=$('<li class="alert alert-'+options.type+'"><strong class="pull-left">'+options.msg+'</strong></li>');
+
+          if (options.showCloseButton && options.autoHide!=true) {
+       var $cancel = $('<button type="button" class="bootbox-close-button close messenger-close" data-dismiss="alert">');
+        $cancel.html(options.closeButtonText);
+        var _this=this;
+        $cancel.on('click',$.proxy( this.hidemsg, this ));
+        this.$msgItem.append($cancel);
+      }
+
+     this.$msgItem.appendTo($ul);
+
+     if(options.autoHide){
+      setTimeout($.proxy( this.hidemsg, this ),options.hideAfter)
+     }
+
+
+     },
+
+     hidemsg:function(){
+
+      this.$msgItem.slideUp()
+
+     }
+
+  }
+ //bootbox.msg('')
+  exports.msg=function(o){
+
+    new _MSG(o)
+
+  },
 
   exports.info = function(msg,callback,autohide) {
     var options={
