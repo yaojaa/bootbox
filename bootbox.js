@@ -327,8 +327,8 @@
            console.log(opt);
 
       var defaults={
-          hideAfter:1000,
-          position:'msg-on-top',
+          hideAfter:10000,
+          position:'msg-on-rb',
           container:$('body'),
           type:'success',
           showCloseButton:true,
@@ -339,23 +339,23 @@
      var options= $.extend({},defaults,opt);
 
 
-     if($('.bootbox-messenger').size()<=0){
-     var $ul=$('<ul class="bootbox-messenger"></ul>').appendTo(options.container)
+     if($('ul.'+options.position).size()<=0){
+     var $ul=$('<ul class="bootbox-messenger ' + options.position + '"></ul>').appendTo(options.container)
      }else{
-      $ul=$('ul.bootbox-messenger')
+      $ul=$('ul.'+options.position)
      }
      console.log($ul);
      this.$msgItem=$('<li class="alert alert-'+options.type+'"><strong class="pull-left">'+options.msg+'</strong></li>');
 
           if (options.showCloseButton && options.autoHide!=true) {
-       var $cancel = $('<button type="button" class="bootbox-close-button close messenger-close" data-dismiss="alert">');
+       var $cancel = $('<button type="button" class="bootbox-close-button close messenger-close">');
         $cancel.html(options.closeButtonText);
         var _this=this;
         $cancel.on('click',$.proxy( this.hidemsg, this ));
         this.$msgItem.append($cancel);
       }
 
-     this.$msgItem.appendTo($ul);
+     this.$msgItem.hide().appendTo($ul).slideDown();
 
      if(options.autoHide){
       setTimeout($.proxy( this.hidemsg, this ),options.hideAfter)
@@ -365,7 +365,7 @@
      },
 
      hidemsg:function(){
-
+      // alert('click me')
       this.$msgItem.slideUp()
 
      }
@@ -752,9 +752,18 @@
   };
 
   exports.dialog = function(options) {
+
+
+    if($('.bootbox').size()){
+      return;
+    } 
+
+
     options = sanitize(options);
 
     var dialog = $(templates.dialog);
+        console.log(dialog);
+
     var innerDialog = dialog.find(".modal-dialog");
     var body = dialog.find(".modal-body");
     var buttons = options.buttons;

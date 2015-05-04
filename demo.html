@@ -10,9 +10,14 @@
 
 /*******************/
 
+html,body,ul,li{
+    margin: 0;
+    padding: 0
+}
+
 body{
  -webkit-font-smoothing:antialiased ;
-  padding: 30px}
+}
     </style>
 
 </head>
@@ -70,24 +75,31 @@ body{
 
 
 <p style="padding:60px"><button class="btn btn-lg  btn-success" id="bootbox-success">success</button>
-	<button class="btn btn-lg btn-warning" id="bootbox-warning">warning</button>
-	<button class="btn btn-lg btn-danger" id="bootbox-danger">danger</button>
-	<button class="btn btn-lg btn-info" id="bootbox-info">info</button>
+<button class="btn btn-lg btn-warning" id="bootbox-warning" title="" data-placement="left" data-toggle="tooltip" class="btn btn-default" type="button" data-original-title="Tooltip on left">warning</button>
+<button class="btn btn-lg btn-danger" id="bootbox-danger">danger</button>
+<button class="btn btn-lg btn-info" id="bootbox-info">info</button>
 
 
-	<button class="btn btn-lg btn-default" id="bootbox-confirm">confirm</button>
-	
+<button class="btn btn-lg btn-default" id="bootbox-confirm">confirm</button>
 
 
-	<button class="btn btn-lg btn-default" id="bootbox-prompt">prompt</button>
 
-		<button class="btn btn-lg btn-default" id="bootbox-options">options</button>
+<button class="btn btn-lg btn-default" id="bootbox-prompt">prompt</button>
 
-        <button class="btn btn-lg btn-default" id="bootbox-loading">loading</button>
+<button class="btn btn-lg btn-default" id="bootbox-options">options</button>
 
-         <button class="btn btn-lg btn-default" id="bootbox-rb">底部弹出</button>
+<button class="btn btn-lg btn-default" id="bootbox-loading">loading</button>
 
-                  <button class="btn btn-lg btn-default" id="bootbox-msg">msg</button>
+<button class="btn btn-lg btn-default" id="bootbox-rb">底部弹出</button>
+
+<button class="btn btn-lg btn-default" id="bootbox-msg-rb">msg-rb</button>
+<button class="btn btn-lg btn-default" id="bootbox-msg-bottom">msg-bottom</button>
+<button class="btn btn-lg btn-default" id="bootbox-msg-lb">msg-lb</button>
+
+<button class="btn btn-lg btn-default" id="bootbox-msg-lt">msg-lt</button>
+
+<button class="btn btn-lg btn-default" id="bootbox-msg-tr">msg-tr</button>
+
 
 
 
@@ -303,12 +315,84 @@ $("#bootbox-msg").on('click', function() {
          hideAfter:3000
     });
 
-          bootbox.msg({
+        bootbox.msg({
         msg: 'im a msg form type is info',
         hideAfter:4000,        
         type:'info'
     });
+
+     
 });
+
+
+
+$("#bootbox-msg-lt").on('click', function() {
+    bootbox.msg({
+        msg: 'im a msg type is  success',
+        type:'success',
+        hideAfter:2000,
+                position:'msg-on-lt'
+    });
+
+});
+
+$("#bootbox-msg-lb").on('click', function() {
+    bootbox.msg({
+        msg: 'im a msg type is  success',
+        type:'success',
+        hideAfter:2000,
+                position:'msg-on-lb'
+    });
+
+});
+
+$("#bootbox-msg-bottom").on('click', function() {
+    bootbox.msg({
+        msg: 'im a msg type is  success',
+        type:'success',
+        hideAfter:2000,
+                position:'msg-on-bottom'
+    });
+
+});
+
+$("#bootbox-msg-rb").on('click', function() {
+    bootbox.msg({
+        msg: 'im a msg type is  success',
+        type:'success',
+        hideAfter:2000,
+                position:'msg-on-rb'
+    });
+
+});
+
+
+
+$("#bootbox-msg-tr").on('click', function() {
+    bootbox.msg({
+        msg: 'im a msg type is  success',
+        type:'success',
+        hideAfter:2000,
+         position:'msg-on-tr'
+    });
+
+});
+
+
+
+   // bootbox.msg({
+   //      msg: '：） 欢迎使用bootbox',
+   //      hideAfter:4000,        
+   //      type:'success'
+   //  });
+
+     bootbox.msg({
+        msg: ' 你有一条新的消息,请注意查收 ',
+        type:'danger',
+        position:'msg-on-top',
+        autoHide:false
+
+    });
 </script>
 
 </body>
